@@ -1,4 +1,4 @@
-/* $Id: drv_USBHUB.c 1126 2010-07-13 03:25:44Z michael $
+/* $Id: drv_USBHUB.c 1203 2015-07-12 21:26:15Z jmccrohan $
  * $URL: https://ssl.bulix.org/svn/lcd4linux/trunk/drv_USBHUB.c $
  *
  * driver for USBHUB
@@ -35,6 +35,7 @@
  */
 
 #include "config.h"
+#include <stdint.h>
 
 #ifdef HAVE_USB_H
 #include <usb.h>
@@ -68,15 +69,15 @@ static unsigned int hubProduct = 0x0058;
 static usb_dev_handle *hub = NULL;
 
 typedef struct _usb_hub_descriptor {
-    u_int8_t bLength;
-    u_int8_t bDescriptorType;
-    u_int8_t nNbrPorts;
-    u_int8_t wHubCharacteristicLow;
-    u_int8_t wHubCharacteristicHigh;
-    u_int8_t bPwrOn2PwrGood;
-    u_int8_t bHubContrCurrent;
-    u_int8_t deviceRemovable;
-    u_int8_t PortPwrCtrlMask[8];
+    uint8_t bLength;
+    uint8_t bDescriptorType;
+    uint8_t nNbrPorts;
+    uint8_t wHubCharacteristicLow;
+    uint8_t wHubCharacteristicHigh;
+    uint8_t bPwrOn2PwrGood;
+    uint8_t bHubContrCurrent;
+    uint8_t deviceRemovable;
+    uint8_t PortPwrCtrlMask[8];
 } usb_hub_descriptor;
 
 /****************************************/
@@ -268,7 +269,7 @@ int drv_UH_init(const char *section, const int quiet)
     int ret;
     int i;
 
-    info("%s: %s", Name, "$Rev: 1126 $");
+    info("%s: %s", Name, "$Rev: 1203 $");
 
 
 

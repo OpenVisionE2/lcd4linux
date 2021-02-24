@@ -1,4 +1,4 @@
-/* $Id: drv_generic_i2c.h 1157 2011-07-27 05:58:08Z michael $
+/* $Id: drv_generic_i2c.h 1202 2015-06-18 16:44:09Z michael $
  * $URL: https://ssl.bulix.org/svn/lcd4linux/trunk/drv_generic_i2c.h $
  *
  * generic driver helper for i2c displays
@@ -57,6 +57,7 @@ int drv_generic_i2c_close(void);
 unsigned char drv_generic_i2c_wire(const char *name, const char *deflt);
 void drv_generic_i2c_byte(const unsigned char data);
 void drv_generic_i2c_data(const unsigned char data);
-void drv_generic_i2c_command(const unsigned char command, /*const */ unsigned char *data, const unsigned char length);
+void drv_generic_i2c_command(const unsigned char command, /*const */ unsigned char *data, const unsigned char length,
+			     int bits);
 
 #endif
